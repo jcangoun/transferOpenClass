@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
   if (token) {
+    // Ici, si j ai le token je crée la banniere d édition
     const banniere = document.createElement("div");
     banniere.id = "banniereEdition";
     banniere.innerHTML = `
@@ -20,6 +21,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.prepend(banniere);
     const texteBanniere = document.getElementById("texteBanniere");
     texteBanniere.style.color = "white";
+
+    
+    //  Je veux recupérer les differents projets qui sont dans l' API a l ouverture de la galerie photos
+
+    texteBanniere.addEventListener("click", () => {
+
+
+      //  Je veux recupérer les differents projets qui sont dans l' API 
+      fetch("http://localhost:5678/api/works")
+
+
+    })
+   .then(response => response.json()) // convertir la réponse en JSON
+    .then(data => {
+        console.log(data); // ici tu récupères tes données
+    })
+    .catch(error => {
+        console.error("Erreur :", error);
+    });
+
+ 
+
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
