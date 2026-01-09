@@ -62,6 +62,14 @@ console.log("Token bon :", token);
 const loginConnection = document.getElementById("loginConnection");
 console.log(loginConnection);
 if (token) {
+  console.log("c est bon");
+  const modifBanniere = document.createElement("div");
+  modifBanniere.setAttribute("id", "banniere");
+  console.log(modifBanniere);
+  const monBody = document.querySelector("body");
+  console.log(modifBanniere);
+  monBody.insertBefore(modifBanniere, monBody.firstChild);
+  modifBanniere.style.display = "flex";
   loginConnection.textContent = "logout";
   loginConnection.addEventListener("click", () => {
     logout();
