@@ -53,6 +53,36 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+/* #modifBanniere {
+	background-color: #1D6154;
+	color: white;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 14px;
+	font-family: 'Work Sans';
+	position: relative;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+} */
+
+#banniere {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+	padding: 25px;
+    background-color: #000000;
+}
+#texte-banniere {
+	background-color: black ;
+	color: #FFFFFF;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+}
 header {
 	display: flex;
 	justify-content: space-between;
