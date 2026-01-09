@@ -20,34 +20,32 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(user),
   })
     .then((response) => {
-        if (!response.ok) {
-            if (response.status === 401) {
-                error.textContent = "Une erreur est survenue le mot de passe incorrect.";
-            } else if (response.status === 404) {
-                error.textContent = "Une erreur est survenue. l email est incorrecte.";
-            }
+      if (!response.ok) {
+        if (response.status === 401) {
+          error.textContent = "Une erreur est survenue le mot de passe incorrect.";
+        } else if (response.status === 404) {
+          error.textContent = "Une erreur est survenue. l email est incorrecte.";
         }
-        return response.json();
+      }
+      return response.json();
     })
-    .then((data)=> {
-        //  ici je dois récupérer le token 
-        localStorage.setItem("token", data.token)
-        console.log(data);
-        console.log("c est les datas la haut");
-        window.location.href = "./index.html";
+    .then((data) => {
+      //  ici je dois récupérer le token
+      localStorage.setItem("token", data.token);
+      console.log(data);
+      console.log("c est les datas la haut");
+      window.location.href = "./index.html";
     })
     .catch((err) => {
       console.log(err);
     });
-
 });
 
-
 // le stocker dans le local storage
-const token = localStorage.getItem("token"); 
+const token = localStorage.getItem("token");
 console.log("Token bon :", token);
 // puis rediriger vers la page d accueil
-// window.location.href = "./index.html"; 
+// window.location.href = "./index.html";
 // if (token) {
 //     // console.log("Utilisateur connecté");
 // // const modifBanniere = document.createElement("div");
@@ -60,3 +58,22 @@ console.log("Token bon :", token);
 
 // }
 // puis dans la page d accueil je dois vérifier si le token est présent
+
+const loginConnection = document.getElementById("loginConnection");
+console.log(loginConnection);
+if (token) {
+  loginConnection.textContent = "logout";
+  loginConnection.addEventListener("click", () => {
+    logout();
+  });
+} else {
+  loginConnection.textContent = "login";
+  loginConnection.addEventListener("click", () => {
+    window.location.href = "./login.html";
+  });
+}
+function logout() {
+  localStorage.removeItem("token");
+  window.location.href = "./index.html";
+  loginConnection.href = "./login.html";
+}
