@@ -23,25 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     texteBanniere.style.color = "white";
 
     
-    //  Je veux recupérer les differents projets qui sont dans l' API a l ouverture de la galerie photos
-
-    texteBanniere.addEventListener("click", () => {
-
-
-      //  Je veux recupérer les differents projets qui sont dans l' API 
-      fetch("http://localhost:5678/api/works")
-
-
-    })
-   .then(response => response.json()) // convertir la réponse en JSON
+    fetch("https://api.exemple.com/data")
+    .then(response => response.json()) // convertir la réponse en JSON
     .then(data => {
         console.log(data); // ici tu récupères tes données
     })
     .catch(error => {
         console.error("Erreur :", error);
     });
-
- 
 
 
     loginConnection.textContent = "logout";
@@ -61,3 +50,30 @@ document.addEventListener("DOMContentLoaded", () => {
     loginConnection.href = "./login.html";
   }
 });
+
+const gallery = document.querySelector(".gallery");
+
+async function works () {
+    try {
+        const response = await fetch("http://localhost:5678/api/works");
+        const data = await response.json();
+        console.log(data);
+        data.forEach((data) => {
+            work(data);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+works();
+function work (data) {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    img.src = data.imageUrl;
+    img.alt = data.title;
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = data.title;
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    gallery.appendChild(figure);
+}
