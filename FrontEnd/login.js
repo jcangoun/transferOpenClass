@@ -55,8 +55,8 @@ console.log("Token bon :", token);
 // // modifBanniere.style.alignItems = "center";
 // // modifBanniere.style.backgroundColor = "grey";
 // // modifBanniere.style.padding = "16px 8px";
-
 // }
+
 // puis dans la page d accueil je dois vérifier si le token est présent
 
 const loginConnection = document.getElementById("loginConnection");
