@@ -44,21 +44,66 @@ document.addEventListener("DOMContentLoaded", () => {
     modifierBanniere.style.fontSize = "18px";
     modifierBanniere.style.marginRight = "8px";
 
+    // /creation section du portfolio
     const portfolioSection = document.getElementById("portfolio");
 
     const containerOfSecdHeader = document.createElement("div");
     containerOfSecdHeader.id = "containerOfSecdHeader";
-    const seconHeader = document.getElementById("h2");
-    seconHeader.id = "secondHeader";
+
+    const h2 = document.createElement("h2");
+    h2.id = "h2Projet";
+    h2.textContent = "Mes Projets";
+    h2.style.display = "flex";
+    h2.style.alignItems = "center";
+    h2.style.justifyContent = "center";
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    const h2span = document.createElement("span");
+    h2span.id = "btnModifier";
+    const iconeModifier = document .createElement("i");
+    iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
+    h2span.innerText = "modifier";
+    h2span.appendChild(iconeModifier);
+    portfolioSection.prepend(containerOfSecdHeader);
+    containerOfSecdHeader.appendChild(h2);
+    h2.appendChild(h2span);
+    
+    iconeModifier.style.color = "#000000";
+    iconeModifier.style.fontWeight = 400;
+    iconeModifier.style.fontSize = "16px";
+    iconeModifier.style.margin = "8px";
+    
+////////////////////////////////////// Ici il y a la pemiere partie du bug login logout /////////    
+
+    // const seconHeader = document.getElementById("h2");
+    // seconHeader.id = "secondHeader";
+
+////////////////////////////////////// Ici il y a la pemiere partie du bug login logout /////////    
+
+    const btnModifier = document.getElementById("btnModifier");
+    btnModifier.style.fontSize = "16px";
+    btnModifier.style.fontFamily = "Work Sans";
+    btnModifier.style.fontWeight = "400";
+    btnModifier.style.color = "#000000";
+    btnModifier.style.padding = "16px";
+
+
 
     // const btnModifier = document.createElement("button");
     // btnModifier.id = "btnModifiermodifierProjets";
     // btnModifier.innerText = "Modifier";
     // portfolioSection.prepend(btnModifier);
 
-    btnModifier.style.display = "block";
 
+/////////////////////////  ici deuxieme partie du bug login log out //////////
+
+    btnModifier.style.display = "block";
     portfolioSection.prepend(containerOfSecdHeader);
+    
+/////////////////////////  ici deuxieme partie du bug login log out //////////
+    
 
     // fetch("https://api.exemple.com/data")
     // .then(response => response.json()) // convertir la réponse en JSON
