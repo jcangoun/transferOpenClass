@@ -56,13 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.style.display = "flex";
     h2.style.alignItems = "center";
     h2.style.justifyContent = "center";
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
+
 
     const h2span = document.createElement("span");
     h2span.id = "btnModifier";
-    const iconeModifier = document .createElement("i");
+    const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
     h2span.innerText = "modifier";
     h2span.appendChild(iconeModifier);
@@ -83,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
 ////////////////////////////////////// Ici il y a la pemiere partie du bug login logout /////////    
 
     const btnModifier = document.getElementById("btnModifier");
+    btnModifier.style.display = "flex";
+    btnModifier.style.justifyContent = "center";
+    btnModifier.style.alignItems = "center";
     btnModifier.style.fontSize = "16px";
     btnModifier.style.fontFamily = "Work Sans";
     btnModifier.style.fontWeight = "400";
@@ -99,20 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /////////////////////////  ici deuxieme partie du bug login log out //////////
 
-    btnModifier.style.display = "block";
-    portfolioSection.prepend(containerOfSecdHeader);
+    // btnModifier.style.display = "block";
+    // portfolioSection.prepend(containerOfSecdHeader);
     
 /////////////////////////  ici deuxieme partie du bug login log out //////////
     
-
-    // fetch("https://api.exemple.com/data")
-    // .then(response => response.json()) // convertir la réponse en JSON
-    // .then(data => {
-    //     console.log(data); // ici tu récupères tes données
-    // })
-    // .catch(error => {
-    //     console.error("Erreur :", error);
-    // });
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {

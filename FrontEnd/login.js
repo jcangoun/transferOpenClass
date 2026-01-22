@@ -44,18 +44,6 @@ form.addEventListener("submit", (e) => {
 // le stocker dans le local storage
 const token = localStorage.getItem("token");
 console.log("Token bon :", token);
-// puis rediriger vers la page d accueil
-// window.location.href = "./index.html";
-// if (token) {
-//     // console.log("Utilisateur connecté");
-// // const modifBanniere = document.createElement("div");
-// // modifBanniere.setAttribute("id", "banniere");
-// // modifBanniere.style.display = "flex";
-// // modifBanniere.style.justifyContent = "center";
-// // modifBanniere.style.alignItems = "center";
-// // modifBanniere.style.backgroundColor = "grey";
-// // modifBanniere.style.padding = "16px 8px";
-// }
 
 // puis dans la page d accueil je dois vérifier si le token est présent
 
