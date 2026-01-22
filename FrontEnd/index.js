@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log("Token bon:", token);
   console.log(btnModifier);
 
+  // if (token) {console.log("Utilisateur connecté");}
+  // const modifBanniere = document.createElement("div");
+  // modifBanniere.setAttribute("id", "banniere");
+  // document.body.insertBefore(modifBanniere, document.body.firstChild);
+
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
   if (token) {
@@ -42,9 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // /creation section du portfolio
     const portfolioSection = document.getElementById("portfolio");
 
-    const containerOfSecdHeader = document.createElement("div");
-    containerOfSecdHeader.id = "containerOfSecdHeader";
-
     const h2 = document.createElement("h2");
     h2.id = "h2Projet";
     h2.textContent = "Mes Projets";
@@ -68,9 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
-   
 
-    const btnModifier = document.getElementById("btnModifier");
+    const blockH2 = document.querySelector("#portfolio > h2");
+
+    // const btnModifier = document.getElementById("btnModifier");
+    // const btnModifier = document.createElement("button");
+    
     btnModifier.style.display = "flex";
     btnModifier.style.justifyContent = "center";
     btnModifier.style.alignItems = "center";
@@ -80,7 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btnModifier.style.color = "#000000";
     btnModifier.style.padding = "16px";
 
-    
+    blockH2.appendChild(btnModifier);
+
+
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
