@@ -11,11 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log("Token bon:", token);
   console.log(btnModifier);
 
-  // if (token) {console.log("Utilisateur connecté");}
-  // const modifBanniere = document.createElement("div");
-  // modifBanniere.setAttribute("id", "banniere");
-  // document.body.insertBefore(modifBanniere, document.body.firstChild);
-
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
   if (token) {
@@ -60,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const h2span = document.createElement("span");
     h2span.id = "btnModifier";
+
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
     h2span.innerText = "modifier";
@@ -72,13 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
-    
-////////////////////////////////////// Ici il y a la pemiere partie du bug login logout /////////    
-
-    // const seconHeader = document.getElementById("h2");
-    // seconHeader.id = "secondHeader";
-
-////////////////////////////////////// Ici il y a la pemiere partie du bug login logout /////////    
+   
 
     const btnModifier = document.getElementById("btnModifier");
     btnModifier.style.display = "flex";
@@ -90,22 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnModifier.style.color = "#000000";
     btnModifier.style.padding = "16px";
 
-
-
-    // const btnModifier = document.createElement("button");
-    // btnModifier.id = "btnModifiermodifierProjets";
-    // btnModifier.innerText = "Modifier";
-    // portfolioSection.prepend(btnModifier);
-
-
-/////////////////////////  ici deuxieme partie du bug login log out //////////
-
-    // btnModifier.style.display = "block";
-    // portfolioSection.prepend(containerOfSecdHeader);
     
-/////////////////////////  ici deuxieme partie du bug login log out //////////
-    
-
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
@@ -113,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     btnModifier.style.display = "none";
     loginConnection.textContent = "login";
+    
+
     loginConnection.addEventListener("click", () => {
       window.location.href = "./login.html";
     });
