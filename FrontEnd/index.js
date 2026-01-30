@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // h2.style.alignItems = "center";
     // h2.style.justifyContent = "center";
 
-
     const h2Btn = document.createElement("button");
     h2Btn.id = "btnModifier";
 
@@ -60,25 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // portfolioSection.prepend(containerOfSecdHeader);
     // containerOfSecdHeader.appendChild(h2);
     // h2.appendChild(h2span);
-    
+
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
     // h2 singularisé
-    
+
     const h2 = document.querySelector("#portfolio > h2");
     h2.id = "h2Projet";
     h2.style.display = "flex";
     h2.style.alignItems = "center";
-    h2.style.justifyContent = "center";    
+    h2.style.justifyContent = "center";
     h2.appendChild(h2Btn);
 
     const boutonDeFiltre = document.querySelector("#containerBoutons");
     boutonDeFiltre.style.display = "none";
     // const btnModifier = document.getElementById("btnModifier");
     // const btnModifier = document.createElement("button");
-    
+
     // btnModifier.style.display = "flex";
     // btnModifier.style.justifyContent = "center";
     // btnModifier.style.alignItems = "center";
@@ -90,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // blockH2.appendChild(btnModifier);
 
-
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
@@ -100,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loginConnection.textContent = "login";
 
     boutonDeFiltre.style.display = "none";
-    
 
     loginConnection.addEventListener("click", () => {
       window.location.href = "./login.html";
@@ -131,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const gallery = document.querySelector(".gallery");
 
 function createFilters(tag, classes = [], content) {
-    const filters = document.querySelector(".filters");
+  const filters = document.querySelector(".filters");
 
   const filter = document.createElement(tag);
   classes.forEach((classe) => filter.classList.add(classe));
@@ -146,6 +143,8 @@ async function works() {
     data.forEach((data) => {
       work(data);
     });
+
+    handelingFilter();
   } catch (error) {
     console.log(error);
   }
@@ -165,3 +164,28 @@ function work(data) {
   figure.appendChild(figcaption);
   gallery.appendChild(figure);
 }
+
+function handelingFilter() {
+  const filters = document.getElementsByClassName("btn-filter");
+  console.log(filters);
+  Array.from(filters).forEach((filter, index) => {
+    filter.addEventListener("click", () => {
+      const activeFilter = document.querySelectorAll(".btn-active");
+      activeFilter.forEach((filter) => {
+        filter.classList.remove("btn-active");
+      });
+      filter.classList.add("btn-active");
+      const cards = document.querySelectorAll(".gallery figure");
+      cards.forEach((card) => {
+        if (index === 0) {
+          card.style.display = "block";
+        } else {
+          if (card.dataset.categoryId == index) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        }
+    });
+  });
+})};
