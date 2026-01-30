@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
-  const portfolio = document.getElementById("portfolio");
+  // const portfolio = document.getElementById("portfolio");
 
   const filters = document.createElement("div");
   filters.classList.add("filters");
@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // console.log("Token bon:", token);
   console.log(btnModifier);
-
-  // if (token) {console.log("Utilisateur connecté");}
-  // const modifBanniere = document.createElement("div");
-  // modifBanniere.setAttribute("id", "banniere");
-  // document.body.insertBefore(modifBanniere, document.body.firstChild);
 
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
@@ -47,45 +42,53 @@ document.addEventListener("DOMContentLoaded", () => {
     // /creation section du portfolio
     const portfolioSection = document.getElementById("portfolio");
 
-    const h2 = document.createElement("h2");
-    h2.id = "h2Projet";
-    h2.textContent = "Mes Projets";
-    h2.style.display = "flex";
-    h2.style.alignItems = "center";
-    h2.style.justifyContent = "center";
+    // const h2 = document.querySelector("h2");
+    // h2.id = "h2Projet";
+    // h2.textContent = "Mes Projets";
+    // h2.style.display = "flex";
+    // h2.style.alignItems = "center";
+    // h2.style.justifyContent = "center";
 
 
-    const h2span = document.createElement("span");
-    h2span.id = "btnModifier";
+    const h2Btn = document.createElement("button");
+    h2Btn.id = "btnModifier";
 
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
-    h2span.innerText = "modifier";
-    h2span.appendChild(iconeModifier);
-    portfolioSection.prepend(containerOfSecdHeader);
-    containerOfSecdHeader.appendChild(h2);
-    h2.appendChild(h2span);
+    h2Btn.innerText = "modifier";
+    h2Btn.appendChild(iconeModifier);
+    // portfolioSection.prepend(containerOfSecdHeader);
+    // containerOfSecdHeader.appendChild(h2);
+    // h2.appendChild(h2span);
     
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
+    // h2 singularisé
+    
+    const h2 = document.querySelector("#portfolio > h2");
+    h2.id = "h2Projet";
+    h2.style.display = "flex";
+    h2.style.alignItems = "center";
+    h2.style.justifyContent = "center";    
+    h2.appendChild(h2Btn);
 
-    const blockH2 = document.querySelector("#portfolio > h2");
-
+    const boutonDeFiltre = document.querySelector("#containerBoutons");
+    boutonDeFiltre.style.display = "none";
     // const btnModifier = document.getElementById("btnModifier");
     // const btnModifier = document.createElement("button");
     
-    btnModifier.style.display = "flex";
-    btnModifier.style.justifyContent = "center";
-    btnModifier.style.alignItems = "center";
-    btnModifier.style.fontSize = "16px";
-    btnModifier.style.fontFamily = "Work Sans";
-    btnModifier.style.fontWeight = "400";
-    btnModifier.style.color = "#000000";
-    btnModifier.style.padding = "16px";
+    // btnModifier.style.display = "flex";
+    // btnModifier.style.justifyContent = "center";
+    // btnModifier.style.alignItems = "center";
+    // btnModifier.style.fontSize = "16px";
+    // btnModifier.style.fontFamily = "Work Sans";
+    // btnModifier.style.fontWeight = "400";
+    // btnModifier.style.color = "#000000";
+    // btnModifier.style.padding = "16px";
 
-    blockH2.appendChild(btnModifier);
+    // blockH2.appendChild(btnModifier);
 
 
     loginConnection.textContent = "logout";
@@ -95,6 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     btnModifier.style.display = "none";
     loginConnection.textContent = "login";
+
+    boutonDeFiltre.style.display = "none";
     
 
     loginConnection.addEventListener("click", () => {
